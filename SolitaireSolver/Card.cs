@@ -20,6 +20,43 @@ namespace SolitaireSolver
             _rank = rank;
         }
 
+        public Card(string cardString)
+        {
+            switch(cardString[0])
+            {
+                case 'A':
+                    _rank = Rank.Ace;
+                    break;
+                case 'J':
+                    _rank = Rank.Jack;
+                    break;
+                case 'Q':
+                    _rank = Rank.Queen;
+                    break;
+                case 'K':
+                    _rank = Rank.King;
+                    break;
+                default:
+                    _rank = (Rank)(int.Parse(cardString[0].ToString()));
+                    break;
+            }
+            switch(cardString[1])
+            {
+                case '♠':
+                    _suit = Suit.Spades;
+                    break;
+                case '♥':
+                    _suit = Suit.Hearts;
+                    break;
+                case '♣':
+                    _suit = Suit.Clubs;
+                    break;
+                case '♦':
+                    _suit = Suit.Diamonds;
+                    break;
+            }
+        }
+
         public override string ToString()
         {
             var rankStr = "";
